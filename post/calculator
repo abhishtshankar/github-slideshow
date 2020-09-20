@@ -1,0 +1,205 @@
+package calculator;
+
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JTextField; 
+
+public class Cal implements ActionListener {
+	  double temp=0.0, nxt=0.0, res=0.0;
+	  int op=0;
+	  JFrame f= new JFrame("Calculator"); 
+ 	  JTextField t = new JTextField();
+	  JButton  b0 = new JButton("0"); 
+ 	  JButton  b1 = new JButton("1"); 
+ 	  JButton  b2 = new JButton("2"); 
+ 	  JButton  b3 = new JButton("3"); 
+ 	  JButton  b4 = new JButton("4"); 
+ 	  JButton  b5 = new JButton("5"); 
+ 	  JButton  b6 = new JButton("6"); 
+ 	  JButton  b7 = new JButton("7"); 
+ 	  JButton  b8 = new JButton("8"); 
+ 	  JButton  b9 = new JButton("9"); 
+    JButton  ba = new JButton("+"); 
+    JButton  bs = new JButton("-"); 
+    JButton  bd = new JButton("/"); 
+    JButton  bm = new JButton("*"); 
+    JButton  beq1 = new JButton("=");
+    JButton  beq = new JButton("Clear"); 
+    JButton  bsq = new JButton("SQ"); 
+    JButton  bsqrt = new JButton("SQRT"); 
+    JButton  bsi = new JButton("SIN"); 
+    JButton  bco = new JButton("COS");
+    JButton  bta = new JButton("TAN"); 
+
+
+	
+	public Cal() {		
+	             
+	         t.setBounds(30,40,280,30);   
+	        b0.setBounds(110,310,50,40);
+	        b1.setBounds(40,240,50,40);
+			b2.setBounds(110,240,50,40);
+			b3.setBounds(180,240,50,40);  
+			b4.setBounds(40,170,50,40);
+			b5.setBounds(110,170,50,40);
+			b6.setBounds(180,170,50,40);  
+	        b7.setBounds(40,100,50,40);  
+	        b8.setBounds(110,100,50,40);  
+	        b9.setBounds(180,100,50,40);  
+	        ba.setBounds(250,310,50,40);  
+	        bs.setBounds(250,240,50,40);  
+	        bd.setBounds(250,100,50,40);  
+	        bm.setBounds(250,170,50,40);  
+	        beq1.setBounds(180,310,50,40);  
+	        beq.setBounds(180,380,100,40);  
+	        bsq.setBounds(40, 310,60, 40);
+	        bsqrt.setBounds(40, 380, 70,40 );
+	        bsi.setBounds(40, 430, 70,40);
+	        bco.setBounds(120, 430, 70,40);
+	        bta.setBounds(200, 430, 70,40);
+	        
+	        b0.addActionListener(this); 
+	        b1.addActionListener(this); 
+	        b2.addActionListener(this); 
+	        b3.addActionListener(this); 
+	        b4.addActionListener(this); 
+	        b5.addActionListener(this); 
+	        b6.addActionListener(this); 
+	        b7.addActionListener(this); 
+	        b8.addActionListener(this); 
+	        b9.addActionListener(this); 
+	        ba.addActionListener(this); 
+	        bs.addActionListener(this); 
+	        bd.addActionListener(this); 
+	        bm.addActionListener(this); 
+	        beq1.addActionListener(this); 
+	        beq.addActionListener(this);; 
+	        bsq.addActionListener(this);; 
+	        bsqrt.addActionListener(this);
+	        bsi.addActionListener(this);
+	        bco.addActionListener(this);
+	        bta.addActionListener(this);
+	        
+	        f.add(b0);f.add(b1);f.add(b2);f.add(b3);f.add(b4);f.add(b5);f.add(b6);
+	        f.add(b7);f.add(b8);f.add(b9);f.add(ba);f.add(bs);f.add(bm);f.add(bd);
+	        f.add(beq);f.add(beq1);f.add(t);f.add(bsq);f.add(bsqrt);f.add(bsi);
+	        f.add(bco);f.add(bta);
+			f.setLayout(null);
+			f.setVisible(true);
+			f.setSize(450,600);
+			f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	}
+  
+     
+     public void actionPerformed(ActionEvent e) 
+     {  
+    if (e.getSource()==b1)
+		t.setText(t.getText().concat("1"));
+    
+	if(e.getSource()==b2)
+		t.setText(t.getText().concat("2"));
+	
+	if(e.getSource()==b3)
+		t.setText(t.getText().concat("3"));
+	
+	if(e.getSource()==b4)
+		t.setText(t.getText().concat("4"));
+	
+	if(e.getSource()==b5)
+		t.setText(t.getText().concat("5"));
+	
+	if(e.getSource()==b6)
+		t.setText(t.getText().concat("6"));
+	
+	if(e.getSource()==b7)
+		t.setText(t.getText().concat("7"));
+	
+	if(e.getSource()==b8)
+		t.setText(t.getText().concat("8"));
+	
+	if(e.getSource()==b9)
+		t.setText(t.getText().concat("9"));
+	
+	if(e.getSource()==b0)
+		t.setText(t.getText().concat("0"));
+	if(e.getSource()==beq) {
+		t.setText("");
+		temp=nxt=res=0.0;
+	}
+	
+	if (e.getSource()==ba) {
+		op=0;		
+		temp= Double.parseDouble(t.getText());
+		t.setText("");
+	}
+	if (e.getSource()==bs) {
+		op=1; 		
+		temp= Double.parseDouble(t.getText());	
+		t.setText("");
+	}
+	if (e.getSource()==bm) {
+		op=2;		
+		temp= Double.parseDouble(t.getText());
+		t.setText("");
+	}
+	if (e.getSource()==bd) {
+		op=3;		
+		temp= Double.parseDouble(t.getText());
+		t.setText("");  
+	}
+	if (e.getSource()==bsq) {
+		op=4;		
+		temp= Double.parseDouble(t.getText());
+		 
+	}
+	if (e.getSource()==bsqrt) {
+		op=5;		
+		temp= Double.parseDouble(t.getText());
+	}
+	if (e.getSource()==bsi) {
+		op=6;		
+		temp= Double.parseDouble(t.getText());
+	}
+	if (e.getSource()==bco) {
+		op=7;		
+		temp= Double.parseDouble(t.getText());
+	}
+	if (e.getSource()==bta) {
+		op=8;		
+		temp= Double.parseDouble(t.getText());
+	}
+	
+	
+	
+	
+	if (e.getSource()==beq1) {
+		nxt = Double.parseDouble(t.getText());
+		switch(op) {
+		case 0: res=temp+nxt; break;
+		case 1: res=temp-nxt; break;
+		case 2: res=temp*nxt; break;
+		case 3: res= temp/nxt; break;	
+		case 4: res= temp*temp; break;
+		case 5: res= Math.sqrt(temp);break;
+		case 6: res= Math.sin(Math.toRadians(temp)); break;
+		case 7: res= Math.toRadians(Math.cos(temp)); break;
+		case 8: res= Math.toRadians(Math.tan(temp)); break;
+				default: break;
+		}
+		t.setText(res+"");
+		
+	}
+	}// end of action performed method
+     
+     public static void main(String args[]) {
+   	  new Cal();
+    	 
+     }
+     
+
+}
+
